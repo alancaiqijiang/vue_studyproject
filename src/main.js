@@ -1,5 +1,9 @@
 import Vue from 'vue';
+import iviewui from 'view-design';
 import App from './App.vue';
+
+// 使用插件，use表示“使用”，使用什么？使用插件
+Vue.use(iviewui);
 
 // Vue的起步语法
 new Vue({
