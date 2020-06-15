@@ -82,45 +82,20 @@
     <!--弹出层  -->
     <Modal
       v-model="isChoosePCAS"
-      width="500"
+      width="620"
       title="Add a new shipping address"
       @on-ok="ok"
       @on-cancel="cancel"
     >
-      <p>
-        <b>
-          <span v-if="s ==''">Please Choose your location </span>
-          <span v-else>{{p}}{{c}}{{a}}{{s}}</span>
-        </b>
-         
-        
-      </p>
-      <Dropdown
-        trigger="custom"
-        :visible="isDropDownvisible"
-        style="margin-left: 20px"
-        placement="bottom-start"
-      >
-        <a href="javascript:void(0)" @click="handleDropOpen">
-          Province, City, Area, Street
-          <Icon type="ios-arrow-down"></Icon>
-        </a>
-        <DropdownMenu slot="list" style="height:200px; width:600px">
-          <div class="dropDownInnerBox">
-            <DropdownInner @fulladress="fulladress" />
-          </div>
-          <div style="text-align: right;margin:10px;">
-            <Button type="primary" @click="handleDropClose">关闭</Button>
-          </div>
-        </DropdownMenu>
-      </Dropdown>
+    <ModalInn></ModalInn>
     </Modal>
+    <!--弹出层结束  -->
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import DropdownInner from "./components/dropDownInner.vue";
+import ModalInn from "./components/ModalInn.vue";
 export default {
   data() {
     return {
@@ -149,22 +124,9 @@ export default {
     cancel() {
       this.$Message.info("Clicked cancel");
     },
-    handleDropOpen() {
-      this.isDropDownvisible = true;
-    },
-    handleDropClose() {
-      this.isDropDownvisible = false;
-    },
-    fulladress(obj) {
-      this.p = obj.p;
-      this.c = obj.c;
-      this.a = obj.a;
-      this.s = obj.s;
-      this.isDropDownvisible= false;
-    }
   },
   components: {
-    DropdownInner: DropdownInner
+    ModalInn: ModalInn
   }
 };
 </script>
@@ -263,7 +225,5 @@ export default {
     }
   }
 }
-.dropDownInnerBox {
-  height: 150px;
-}
+
 </style>

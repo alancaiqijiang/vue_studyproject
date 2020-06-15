@@ -120,7 +120,7 @@ export default {
 }
 .hd {
   border-top: 1px solid #cccccc;
-  width: 600px;
+  width: 700px;
   height: 40px;
   position: absolute;
   left: 0;
